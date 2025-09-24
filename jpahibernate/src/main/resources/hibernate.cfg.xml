@@ -15,6 +15,8 @@
  
 		<property name="hibernate.current_session_context_class">thread</property>
 		<mapping class="com.capgemini.jpahibernate.entity.Movie"></mapping>
+		<mapping class="com.capgemini.jpahibernate.entity.Pan"></mapping>
+		<mapping class="com.capgemini.jpahibernate.entity.Person"></mapping>
  
 	 
 	 	</session-factory>
