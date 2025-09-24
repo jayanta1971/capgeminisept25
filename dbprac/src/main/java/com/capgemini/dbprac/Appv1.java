@@ -69,7 +69,8 @@ public class Appv1 {
 //	        		 System.out.println("id="+rs.getInt(1)+" emp_name="+rs.getString(2));
 				System.out.println("id=" + rs.getInt("id") + " emp_name=" + rs.getString("emp_name"));
 			}
-
+			con.close();
+			con=null;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 
@@ -89,7 +90,8 @@ public class Appv1 {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, empName);
 			ps.execute();
-
+			conn.close();
+			conn=null;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -112,6 +114,8 @@ public class Appv1 {
 			ps.setInt(2, id);
 			
 			ps.executeUpdate();
+			conn.close();
+			conn=null;
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -131,6 +135,8 @@ public class Appv1 {
 			PreparedStatement ps = conn.prepareStatement(sql);			 
 			ps.setInt(1, id);			
 			ps.execute();
+			conn.close();
+			conn=null;
 		} catch (Exception e) {
 
 			e.printStackTrace();
