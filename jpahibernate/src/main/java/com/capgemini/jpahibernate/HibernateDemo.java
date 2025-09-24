@@ -35,7 +35,7 @@ public class HibernateDemo {
 		SessionFactory sf= HibernateUtil.getSessionFactory();
 		Session session =sf.getCurrentSession();
 		Transaction t= session.beginTransaction();
-	    Movie movieDB =session.get(Movie.class, id);
+	    Movie movieDB =session.find(Movie.class, id);
 	    session.remove(movieDB);
 	    t.commit();
 		
@@ -46,7 +46,7 @@ public class HibernateDemo {
 		SessionFactory sf= HibernateUtil.getSessionFactory();
 		Session session =sf.getCurrentSession();
 		Transaction t= session.beginTransaction();
-	    Movie movieDB =session.get(Movie.class, movie.getId());
+	    Movie movieDB =session.find(Movie.class, movie.getId());
 	    movieDB.setImdbRating(movie.getImdbRating());
 	    movieDB.setMovieLanguage(movie.getMovieLanguage());
 	    movieDB.setMovieName(movie.getMovieName());
@@ -62,7 +62,7 @@ public class HibernateDemo {
 		SessionFactory sf= HibernateUtil.getSessionFactory();
 		Session session =sf.getCurrentSession();
 		Transaction t= session.beginTransaction();
-	    Movie movie =session.get(Movie.class, id);
+	    Movie movie =session.find(Movie.class, id);
 		System.out.println(movie);
 		t.commit();
 		
