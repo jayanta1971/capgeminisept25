@@ -17,7 +17,10 @@
 		<mapping class="com.capgemini.jpahibernate.entity.Movie"></mapping>
 		<mapping class="com.capgemini.jpahibernate.entity.Pan"></mapping>
 		<mapping class="com.capgemini.jpahibernate.entity.Person"></mapping>
- 
+		<mapping class="com.capgemini.jpahibernate.entity.BankAccount"></mapping>
+ 		<mapping class="com.capgemini.jpahibernate.entity.Employee"></mapping>
+	 	<mapping class="com.capgemini.jpahibernate.entity.Student"></mapping>
+ 		<mapping class="com.capgemini.jpahibernate.entity.Course"></mapping>
 	 
 	 	</session-factory>
 </hibernate-configuration>
