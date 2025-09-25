@@ -27,6 +27,9 @@ public class OneToManyTesting {
 		emp.setEmpName("Jayanta");
 		emp.setListAccount(listBankAcc);
 		session.persist(emp);
+		
+		Employee list=session.find(Employee.class, 1);
+		
 		t.commit();
 		
 	}
