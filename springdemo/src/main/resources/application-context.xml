@@ -1,0 +1,10 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Bean definitions go here -->
+     <bean id="emp" class="com.capgemini.springdemo.beans.Employee" ></bean>
+      <bean id="sti" class="com.capgemini.springdemo.beans.Student" ></bean>
+    
+    
+</beans>
