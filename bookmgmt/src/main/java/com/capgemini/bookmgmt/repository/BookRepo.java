@@ -34,6 +34,17 @@ public class BookRepo {
 		t.begin();
 		Book book=session.find(Book.class, id);
 		t.commit();
+		sf.close();
+		return book;
+	}
+	
+	public Book findByIdForDelete(int id,Transaction t,Session session)
+	{
+		 
+		 
+		Book book=session.find(Book.class, id);
+		t.commit();
+ 
 		return book;
 	}
 	
@@ -53,12 +64,13 @@ public class BookRepo {
 	
 	public void deleteById(int id)
 	{
+		Book book=new Book();
+		book.setId(id);
 		SessionFactory sf= HibernateUtil.getSessionFactory();
 		Session session= sf.getCurrentSession();
 		Transaction t= session.getTransaction();
-		t.begin();
-		Book book=findById(id);
-	      session.remove(book);
+		t.begin();	 
+	    session.remove(book);
 				          
 		t.commit();
 		 
