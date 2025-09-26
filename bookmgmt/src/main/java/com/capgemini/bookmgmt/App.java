@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.capgemini.bookmgmt.entity.Book;
-import com.capgemini.bookmgmt.entity.service.BookService;
+import com.capgemini.bookmgmt.service.BookService;
 
 /**
  * Hello world!

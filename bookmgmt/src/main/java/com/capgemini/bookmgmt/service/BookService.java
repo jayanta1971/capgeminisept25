@@ -1,4 +1,4 @@
-package com.capgemini.bookmgmt.entity.service;
+package com.capgemini.bookmgmt.service;
 
 import java.util.List;
 
