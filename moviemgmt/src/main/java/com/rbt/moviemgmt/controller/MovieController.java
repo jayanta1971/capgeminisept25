@@ -1,6 +1,8 @@
 package com.rbt.moviemgmt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rbt.moviemgmt.entity.Movie;
 import com.rbt.moviemgmt.service.MovieService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 import java.util.List;
 @RestController
 @RequestMapping("/movie")
@@ -27,14 +34,29 @@ public class MovieController {
 		return movieService.findAll();
 		
 	}
-	
+	 @Operation(summary = "Get a Movie", description = "Retrieves a movie provided id.")
+	    @ApiResponses(value = {
+	            @ApiResponse(responseCode = "200", description = "Successfully retrieved Movie"),	                    
+	            @ApiResponse(responseCode = "400", description = "Invalid id supplied")	                    
+	    })
 	@GetMapping("/{id}")
-	Movie  findById(@PathVariable int id)
+	ResponseEntity<Movie>  findById(@PathVariable int id)
 	{
-		return movieService.findById(id);
+		
+		Movie movie=movieService.findById(id);
+		if(movie!=null)
+		{
+			return ResponseEntity.ok(movie);
+		}else		
+		{
+			return ResponseEntity.status(400).body(movie);
+			
+		}
+		
+		 
 		
 	}
-	
+	//jackson data binder
 	@GetMapping("/p")
 	Movie  findByIdParam(@RequestParam int id)
 	{
@@ -43,9 +65,12 @@ public class MovieController {
 	}
 	
 	@PostMapping
-	void  save(@RequestBody Movie movie)
+	ResponseEntity<Movie>   save(@RequestBody Movie movie)
 	{
 		  movieService.save(movie);
+		 
+		  return ResponseEntity.status(201).body(movie);
+		  
 		
 	}
 	@PutMapping
