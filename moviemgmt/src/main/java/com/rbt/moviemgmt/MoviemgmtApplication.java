@@ -31,18 +31,21 @@ public class MoviemgmtApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		 
-//		Movie movie= new Movie("Sholay","Hindi",8);
+//		Movie movie= new Movie("Titnaic","English",8);
 //		movieService.save(movie);
 		
 //		List<Movie> list=movieService.findAll();
 //		System.out.println(list);
-		Movie m= movieService.findById(1);
-		m.setMovieRating(6.5);
-		movieService.save(m);
-		//System.out.println(m);
-		movieService.deleteById(2);
+//		Movie m= movieService.findById(1);
+//		m.setMovieRating(6.5);
+//		movieService.save(m);
+//		//System.out.println(m);
+//		movieService.deleteById(2);
+//		List<Movie> list=movieService.findByMovieLanguage("English");
+//		List<Movie> list=movieService.findByMovieLanguageAndMovieRating("English",8.0);
+		List<Movie> list=movieService.findByMovieLanguageOrderByMovieRatingDesc("Hindi");
 		
-		 
+		System.out.println(list);
 		//razorPay.pay(1000);
 	}
 

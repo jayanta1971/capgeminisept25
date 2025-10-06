@@ -46,4 +46,22 @@ public class MovieServiceImpl implements MovieService {
 		movieRepo.save(movie);
 	}
 
+	@Override
+	public List<Movie> findByMovieLanguage(String language) {
+		// TODO Auto-generated method stub
+		return  movieRepo.findByMovieLanguage(language);
+	}
+
+	@Override
+	public List<Movie> findByMovieLanguageAndMovieRating(String language, double rating) {
+		// TODO Auto-generated method stub
+		return movieRepo.findByMovieLanguageAndMovieRating(language,rating);
+	}
+
+	@Override
+	public List<Movie> findByMovieLanguageOrderByMovieRatingDesc(String language) {
+		// TODO Auto-generated method stub
+		return movieRepo.findByMovieLanguageOrderByMovieRatingDesc(language);
+	}
+
 }

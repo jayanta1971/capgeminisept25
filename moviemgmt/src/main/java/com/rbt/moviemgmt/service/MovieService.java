@@ -10,5 +10,7 @@ public interface MovieService {
 	Movie findById(int id);
 	void deleteById(int id);
 	void save(Movie movie);
-
+	List<Movie> findByMovieLanguage(String language);
+	List<Movie> findByMovieLanguageAndMovieRating(String language,double rating);
+	List<Movie> findByMovieLanguageOrderByMovieRatingDesc(String language);
 }
