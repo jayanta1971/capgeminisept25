@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>This is my view</p>
+<h1 th:text="${data}">Default Title</h1>
+
+ <ul th:each="item : ${list}">
+        <li th:text="${item}">Item</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>This is my view</p>
+ 
+
+ <ul th:each="item : ${list}">
+  		<li th:text="${item.userName}">Item</li>
+        <li th:text="${item.userEmail}">Item</li>
+    </ul>
+</body>
+</html>
