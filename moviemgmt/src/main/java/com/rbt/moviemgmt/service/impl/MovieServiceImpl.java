@@ -33,13 +33,12 @@ public class MovieServiceImpl implements MovieService {
 		{
 			return movieOpt.get();
 		}
-//		else
-//		{
-//			throw new DataNotFoundException("Movie Not Found");
-//		}
-//		
-		
-		return null;
+		else
+		{
+			throw new DataNotFoundException("Movie Not Found");
+		}
+ 
+		 
 	 
 	}
 
@@ -52,10 +51,10 @@ public class MovieServiceImpl implements MovieService {
 		{
 			movieRepo.deleteById(id);
 		}
-//		else
-//		{
-//			throw new DataNotFoundException("Movie Not Found");
-//		}
+		else
+		{
+			throw new DataNotFoundException("Movie Not Found");
+		}
 		
 		
 	}
