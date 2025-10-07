@@ -5,15 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import com.rbt.moviemgmt.dto.RazorPay;
 import com.rbt.moviemgmt.entity.Movie;
 import com.rbt.moviemgmt.service.MovieService;
 
-@SpringBootApplication
+@EnableAutoConfiguration
+@Configuration
 public class MoviemgmtApplication implements CommandLineRunner {
 
 	@Autowired

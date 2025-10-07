@@ -18,6 +18,7 @@ import com.rbt.moviemgmt.service.MovieService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.metadata.MethodType;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import java.util.List;
@@ -42,25 +43,28 @@ public class MovieController {
 	@GetMapping("/{id}")
 	ResponseEntity<Movie>  findById(@PathVariable int id)
 	{
-		
-		Movie movie=movieService.findById(id);
-		if(movie!=null)
-		{
-			return ResponseEntity.ok(movie);
-		}else		
-		{
-			return ResponseEntity.status(400).body(movie);
-			
-		}
+		 
+		 
+		 
+		  Movie movie= movieService.findById(id);
+		  return ResponseEntity.ok(movie);
 		
 		 
 		
 	}
 	//jackson data binder
-	@GetMapping("/p")
+	@GetMapping("/search")
 	Movie  findByIdParam(@RequestParam int id)
 	{
-		return movieService.findById(id);
+		Movie m=null;
+		try {
+		  m=movieService.findById(id);
+		}catch (Exception ex)
+		{
+			ex.printStackTrace();
+			
+		}
+		return m;
 		
 	}
 	
@@ -83,7 +87,12 @@ public class MovieController {
 	@DeleteMapping("/{id}")
 	void  update(@PathVariable int id)
 	{
+		try {
 		  movieService.deleteById(id);
+		}catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
 		 
 	}
 	
