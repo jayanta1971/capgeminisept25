@@ -28,7 +28,7 @@ public class SecurityConfig {
 	    http
 	    .csrf(csrf -> csrf.disable())
 	        .authorizeHttpRequests(authorize -> authorize
-	            .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/home/user/**").permitAll()
+	            .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
 	            .anyRequest().authenticated()
 	        )
 	        .formLogin(form -> form
