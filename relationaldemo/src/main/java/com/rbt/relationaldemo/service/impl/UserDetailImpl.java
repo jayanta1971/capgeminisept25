@@ -46,4 +46,47 @@ public class UserDetailImpl implements UserDetailService {
 		
 	}
 
+	@Override
+	public List<UserDtO> findAll() {
+		// TODO Auto-generated method stub
+		List<UserDetail> list= userDetailRepo.findAll();
+		List<UserDtO> listDTo= new ArrayList<>();
+		for(UserDetail detail:list)
+		{
+			UserDtO dto;
+			dto= new UserDtO();
+			dto.setId(detail.getId());
+			dto.setUserName(detail.getUserName());
+			List<BankAccount> bnkList=detail.getListAccounts();
+			List<BankAccountDto> listbnkAccDto= new ArrayList<>();
+			for(BankAccount bkAcc:bnkList)
+			{
+				BankAccountDto bnkDTo= new BankAccountDto();
+				bnkDTo.setAccountNumber(bkAcc.getAccountNumber());
+				bnkDTo.setAccountType(bkAcc.getAccountType());
+				listbnkAccDto.add(bnkDTo);
+			}
+			dto.setListAccounts(listbnkAccDto);
+			//System.out.println(bnkList);
+			//dto.setListAccounts(detail.getListAccounts());
+			listDTo.add(dto);
+
+		}
+		return listDTo;
+		
+	 
+	}
+
+	@Override
+	public List<UserDetail> findUserDetailsAndBankAccountsByAccountType(String accType) {
+		// TODO Auto-generated method stub
+		return userDetailRepo.findUserDetailsAndBankAccountsByAccountType(accType);
+	}
+
+	@Override
+	public List<UserDetail> findUserDetailsByUserId(int id) {
+		// TODO Auto-generated method stub
+		return userDetailRepo.findUserDetailsByUserId(id);
+	}
+
 }

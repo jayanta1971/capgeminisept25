@@ -3,8 +3,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- Bean definitions go here -->
-     <bean id="emp" class="com.capgemini.springdemo.beans.Employee" ></bean>
-      <bean id="sti" class="com.capgemini.springdemo.beans.Student" ></bean>
+     <bean id="emp" class="com.capgemini.springdemo.beans.Employee">
+       <constructor-arg value="E01" ></constructor-arg>
+       <constructor-arg   value="Jayanta" ></constructor-arg>
+     </bean>
+      <bean id="sti" class="com.capgemini.springdemo.beans.Student" scope="prototype" ></bean>
     
     
 </beans>

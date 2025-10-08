@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.bookmgmt.bean.RazorPay;
 import com.capgemini.bookmgmt.entity.Book;
 import com.capgemini.bookmgmt.repository.BookRepo;
 import com.capgemini.bookmgmt.util.HibernateUtil;
@@ -16,6 +17,15 @@ import com.capgemini.bookmgmt.util.HibernateUtil;
 public class BookService {
 	@Autowired
 	BookRepo bookRepo;
+	
+	@Autowired
+	RazorPay razorPay;
+	
+	public void pay(double amount)
+	{
+		razorPay.pay(amount);
+		
+	}
 	
 	public void save(Book book)
 	{

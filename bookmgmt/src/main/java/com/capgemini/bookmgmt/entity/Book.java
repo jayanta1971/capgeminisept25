@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PostLoad;
 import jakarta.persistence.Table;
-
+import jakarta.persistence.Transient;
+ 
 @Entity
 @Table(name="book")
 public class Book {
@@ -20,22 +22,32 @@ public class Book {
 	@Column(name="book_name")
 	String bookName;
 	
-	@Column(name="book_author")
-	String author;
+	@Column(name="book_author_first_name")
+	String authorFirstName;
 
-	
-	
-	
-	public Book() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	@Column(name="book_author_last_name")
+	String authorLName;
 
-	public Book(String bookName, String author) {
+	@Transient
+	String authorFullName;
+	
+	
+	public Book(String bookName, String authorFirstName, String authorLName) {
 		super();
 		this.bookName = bookName;
-		this.author = author;
+		this.authorFirstName = authorFirstName;
+		this.authorLName = authorLName;
 	}
+
+	public Book() {
+		super();
+		 
+	}
+
+	 @PostLoad
+	  private void onLoad() {
+		 authorFullName=authorFirstName + " " + authorLName;
+	  }
 
 	public int getId() {
 		return id;
@@ -53,20 +65,47 @@ public class Book {
 		this.bookName = bookName;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getAuthorFirstName() {
+		return authorFirstName;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthorFirstName(String authorFirstName) {
+		this.authorFirstName = authorFirstName;
 	}
+
+	public String getAuthorLName() {
+		return authorLName;
+	}
+
+	public void setAuthorLName(String authorLName) {
+		this.authorLName = authorLName;
+	}
+	
+	
+	
+
+	public String getAuthorFullName() {
+		return authorFullName;
+	}
+
+	public void setAuthorFullName(String authorFullName) {
+		this.authorFullName = authorFullName;
+	}
+	
+	 
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", bookName=" + bookName + ", author=" + author + "]";
+		//authorFullName=authorFirstName + " " + authorLName;
+		
+		return "Book [id=" + id + ", bookName=" + bookName + ", authorFirstName=" + authorFirstName + ", authorLName="
+				+ authorLName + ", authorFullName=" + authorFullName + "]";
 	}
-	
-	
+
+	 
+
+	 
+ 
 	
 	
 

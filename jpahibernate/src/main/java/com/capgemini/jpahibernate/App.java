@@ -43,9 +43,11 @@ public class App
     {
     	EntityManagerFactory emf= Persistence.createEntityManagerFactory("my-persistence-unit");
     	EntityManager em=emf.createEntityManager();
-    	List<Movie> movieList=em.createQuery("Select m from Movie m",Movie.class)
+    	List<Movie> movieList=em.createQuery("Select m from Movie m",Movie.class) //JPQL-> Java Persistence Query Language
     							.getResultList();
     	System.out.println(movieList);
+    	
+     
     	
     }
     

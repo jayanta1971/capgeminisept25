@@ -86,9 +86,10 @@ public class Appv1 {
 			String empName = sc.next();
 
 			Connection conn = DriverManager.getConnection(dbURL, username, password);
-			String sql = "insert into employee (emp_name) values(?)";
+			String sql = "insert into employee (emp_name,emp_age) values(?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, empName);
+			
 			ps.execute();
 			conn.close();
 			conn=null;

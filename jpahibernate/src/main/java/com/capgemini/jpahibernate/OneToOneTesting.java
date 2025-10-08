@@ -21,7 +21,7 @@ public class OneToOneTesting {
 //		person.setFirsName("Jayanta");
 //		person.setPan(pan);
 //		session.persist(person);
-		
+//		
 //		Person person = session.find(Person.class, 2);
 //		Pan pan= person.getPan();
 		//System.out.println(pan);

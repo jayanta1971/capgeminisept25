@@ -1,0 +1,51 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Bean definitions go here -->
+     <bean id="car" class="com.capgemini.springdemo.beans.Car" scope="prototype">
+      <!--  <constructor-arg value="maruti"></constructor-arg>
+       <constructor-arg ref="engine"></constructor-arg> -->
+      
+      <!--  <property name="tyres">      
+       <list>       	
+       		<ref bean="tyre1"></ref>
+       		<ref bean="tyre2"></ref>
+       		<ref bean="tyre3"></ref>
+       		<ref bean="tyre4"></ref>
+       	</list>
+       
+       </property> -->
+       <constructor-arg value="maruti" ></constructor-arg>
+        <constructor-arg ref="engine" ></constructor-arg> 
+        <constructor-arg  >
+        <list>       	
+       		<ref bean="tyre1"></ref>
+       		<ref bean="tyre2"></ref>
+       		<ref bean="tyre3"></ref>
+       		<ref bean="tyre4"></ref>
+       	</list>
+       
+       </constructor-arg>
+       </bean>
+      <bean id="engine" class="com.capgemini.springdemo.beans.Engine" scope="prototype" > </bean>
+      
+      
+      
+     <bean id="tyre1" class="com.capgemini.springdemo.beans.Tyre" scope="prototype" >
+     	<property name="make" value="bridgestone"></property>
+     </bean>
+     
+     
+     <bean id="tyre2" class="com.capgemini.springdemo.beans.Tyre" scope="prototype" >
+     <property name="make" value="bridgestone"></property>
+     </bean>
+     <bean id="tyre3" class="com.capgemini.springdemo.beans.Tyre" scope="prototype" >
+     <property name="make" value="bridgestone"></property>
+     </bean>
+  	<bean id="tyre4" class="com.capgemini.springdemo.beans.Tyre" scope="prototype" >
+  	<property name="make" value="bridgestone"></property>
+  	</bean>
+ 
+    
+</beans>

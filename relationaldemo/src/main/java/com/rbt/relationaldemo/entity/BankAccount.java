@@ -1,5 +1,8 @@
 package com.rbt.relationaldemo.entity;
 
+ 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +27,7 @@ public class BankAccount {
 	@Column(name="account_number")
 	String accountNumber;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.DETACH})
 	@JoinColumn(name="user_detail_id")
 	UserDetail userDetail;
 	
@@ -76,10 +79,12 @@ public class BankAccount {
 
 	@Override
 	public String toString() {
-		return "BankAccount [id=" + id + ", accountType=" + accountType + ", accountNumber=" + accountNumber
-				+ ", userDetail=" + userDetail + "]";
+		return "BankAccount [id=" + id + ", accountType=" + accountType + ", accountNumber=" + accountNumber + "]";
 	}
-	
+
+	  
+
+	 
 	
 	
 	

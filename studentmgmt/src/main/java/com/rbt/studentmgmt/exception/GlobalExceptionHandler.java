@@ -5,13 +5,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import io.swagger.v3.oas.annotations.Hidden;
+@Hidden
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 	@ExceptionHandler(value=DataNotFoundException.class)
 	ResponseEntity<String> dataNotFoundException()
 	{
 		return ResponseEntity.status(HttpStatus.NOT_FOUND)
-				.body("Not FOUND");
+				.body("Not FOUND*****");
+	}
+	
+	@ExceptionHandler(value=Exception.class)
+	ResponseEntity<String> genExceptionHandler()
+	{
+		return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body("Not FOUND*****");
 	}
 
 }

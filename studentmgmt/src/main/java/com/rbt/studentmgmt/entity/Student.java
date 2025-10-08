@@ -18,8 +18,8 @@ public class Student {
 	@Column(name="student_name")
 	String studentName;
 	
-	
-
+ 
+ 
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub

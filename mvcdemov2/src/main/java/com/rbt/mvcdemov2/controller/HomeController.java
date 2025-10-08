@@ -61,7 +61,7 @@ public class HomeController {
 		
 	}
 	
-	@GetMapping("/list")
+	@GetMapping("/list1")
 	ModelAndView showList1(Model model)
 	{
 		ModelAndView mv= new ModelAndView("listdata");

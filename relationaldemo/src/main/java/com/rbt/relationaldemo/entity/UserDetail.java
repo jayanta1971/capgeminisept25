@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,6 +16,14 @@ import jakarta.persistence.Table;
 @Table(name="user_details")
 public class UserDetail {
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
@@ -23,7 +32,7 @@ public class UserDetail {
 	@Column(name="user_name")
 	String userName;
 	
-	@OneToMany(mappedBy="userDetail" , cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="userDetail" , cascade=CascadeType.ALL , fetch = FetchType.LAZY)
 	List<BankAccount> listAccounts;
 	
 	
@@ -57,10 +66,10 @@ public class UserDetail {
 
 	 
 
-	@Override
-	public String toString() {
-		return "UserDetails [id=" + id + ", userName=" + userName + ", listAccounts=" + listAccounts + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "UserDetails [id=" + id + ", userName=" + userName + ", listAccounts=" + listAccounts + "]";
+//	}
 	
 	
 	

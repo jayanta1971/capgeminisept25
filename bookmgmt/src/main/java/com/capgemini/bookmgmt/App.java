@@ -59,10 +59,13 @@ public class App
     	Scanner sc= new Scanner(System.in);
         System.out.print( "Please enter Book Name :"  );
         String bookName=sc.nextLine();
-        System.out.print( "Please enter Author Name :"  );
-        String bookAuthor=sc.nextLine();
+        System.out.print( "Please enter Author First Name :"  );
+        String bookAuthorFName=sc.nextLine();
         
-        Book book = new Book(bookName,bookAuthor);
+        System.out.print( "Please enter Author Last Name :"  );
+        String bookAuthorLName=sc.nextLine();
+        
+        Book book = new Book(bookName,bookAuthorFName,bookAuthorLName);
         bookService.save(book);
     }
     
@@ -76,11 +79,11 @@ public class App
         System.out.print( "Please enter Book Name :"  );
         String bookName=sc.nextLine();
         
-        System.out.print( "Please enter Author Name :"  );
+        System.out.print( "Please enter Author First Name :"  );
         sc.nextLine();
-        String bookAuthor=sc.nextLine();
+        String bookAuthorFirstaName=sc.nextLine();
         book.setBookName(bookName);
-        book.setAuthor(bookAuthor);
+        book.setAuthorFirstName(bookAuthorFirstaName);
          
         bookService.save(book);
     }
